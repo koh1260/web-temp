@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/page.css">
+    <title>Document</title>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <div class="todo-app">
+            <div class="nav-bar">
+                <input class="task-input" placeholder="달팽이가 해야할 일" value="" />
+                <button class="add-btn" onclick="addTask()">추가</button>
+                <script>
+                    const todoList = [];
+
+                    const createTask = (key, taskText) => {
+                        return createElement(`
+                            <li key=${key} class="task">
+                                <span class="task-text">${taskText}</span>
+                                <button>X</button>
+                            </li>
+                        `);
+                    }
+
+                    const addTask = () => {
+                        const taskInput = document.querySelector('.task-input');
+                        todoList.push(taskInput.value);
+                        taskInput.value = "";
+                        console.log(todoList);
+
+                        display();
+                    }
+
+                    const removeTask = (key) => {
+                        todoList.splice(key, 1);
+
+                        display();
+                    }
+
+                    const display = () => {
+                        const todos = document.querySelector('.todo-list');
+                        todos.innerHTML = "";
+
+                        todoList.forEach((task, index) => {
+                            const newTask = createElement(`
+                                <li class="task">${task}</li>
+                            `);
+                            const removeBtn = createElement(`
+                                <button class="remove-btn">X</button>
+                            `);
+                            removeBtn.addEventListener('click', () => {
+                                removeTask(index);
+                            });
+                            newTask.appendChild(removeBtn);
+                            todos.appendChild(newTask);
+                        });
+                    }
+                </script>
+            </div>
+            <ul class="todo-list"></ul>
+        </div>
+    </div>
+</body>
+
+</html>

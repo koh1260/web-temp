@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form class="test-form">
+    <fieldset>
+      <legend>찌개</legend>
+      <input id="응찍" type="radio" value="응찍" name="op" />
+      <label for="응찍" >응찍</label>
+      <input id="뿌직" type="radio" value="뿌직" name="op" />
+      <label for="응찍" >뿌직</label>
+      <input id="응찍2" type="radio" value="응찍2" name="op" />
+      <label for="응찍2" >응찍2</label>
+    </fieldset>
+    <button>제출</button>
+    <script>
+      const form = document.querySelector('.test-form');
+
+      const onSubmit = (event) => {
+        event.preventDefault();
+
+        const selected = document.querySelector('input[name="op"]:checked').value;
+        alert(selected);
+      }
+
+      form.addEventListener('submit', (event) => onSubmit(event));
+    </script>
+  </form>
+</body>
+</html>

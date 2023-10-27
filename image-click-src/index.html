@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+<body>
+  <img class="large-image" src="https://haesungsbucket.s3.ap-northeast-2.amazonaws.com/kkilog/login-vanner.png" />
+  <img class="image" src="https://haesungsbucket.s3.ap-northeast-2.amazonaws.com/kkilog/login-vanner.png" />
+  <img class="image" src="https://haesungsbucket.s3.ap-northeast-2.amazonaws.com/kkilog/logo.png" />
+  <script>
+    const large = document.querySelector('.large-image');
+    const small = document.querySelectorAll('.image');
+
+    small.forEach(img => {
+      img.addEventListener('click', onClick);
+    })
+
+    function onClick() {
+      large.src = this.src;
+    }
+  </script>
+</body>
+</html>

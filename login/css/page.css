@@ -1,0 +1,14 @@
+.sign-up-page {
+  width: 50%;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
